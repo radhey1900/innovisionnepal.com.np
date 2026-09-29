@@ -620,6 +620,149 @@
       transform: translateY(-2px);
     }
 
+    /* ── Product Spotlight Grid ── */
+    .prod-spot-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .prod-spot-card {
+      background: var(--white);
+      border: 1px solid rgba(10, 22, 40, 0.04);
+      border-radius: 16px;
+      padding: 28px 24px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.35s var(--ease-spring), box-shadow 0.35s var(--ease-smooth);
+      box-shadow: 0 1px 0 rgba(10, 22, 40, 0.04), 0 2px 8px rgba(10, 22, 40, 0.04);
+    }
+    .prod-spot-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      border: 1px solid rgba(10, 22, 40, 0.03);
+      pointer-events: none;
+      transition: border-color 0.4s var(--ease-smooth);
+    }
+    .prod-spot-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 2px 8px rgba(10, 22, 40, 0.06), 0 12px 32px rgba(10, 22, 40, 0.10);
+    }
+    .prod-spot-card:hover::after { border-color: rgba(2, 198, 247, 0.2); }
+    .prod-spot-icon {
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      background: rgba(2, 198, 247, 0.10);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--cyan);
+      margin-bottom: 16px;
+    }
+    .prod-spot-icon svg { width: 20px; height: 20px; }
+    .prod-spot-code {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--cyan-mid);
+      margin-bottom: 8px;
+    }
+    .prod-spot-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--near-black);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .prod-spot-card p {
+      font-size: 0.92rem;
+      line-height: 1.65;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+    .prod-spot-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: rgba(2, 198, 247, 0.08);
+      color: var(--cyan-mid);
+      border: 1px solid rgba(2, 198, 247, 0.12);
+      transition: all 0.25s var(--ease-smooth);
+    }
+    .prod-spot-card:hover .prod-spot-tag {
+      background: var(--cyan-deep);
+      color: var(--white);
+      border-color: var(--cyan-deep);
+    }
+
+    /* ── Application Grid (Industries) ── */
+    .app-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .app-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 28px 24px;
+      border: 1px solid rgba(10, 22, 40, 0.04);
+      box-shadow: 0 1px 0 rgba(10, 22, 40, 0.04), 0 2px 8px rgba(10, 22, 40, 0.04);
+      transition: transform 0.35s var(--ease-spring), box-shadow 0.35s var(--ease-smooth);
+      position: relative;
+      overflow: hidden;
+    }
+    .app-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      border: 1px solid rgba(10, 22, 40, 0.03);
+      pointer-events: none;
+      transition: border-color 0.4s var(--ease-smooth);
+    }
+    .app-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 2px 8px rgba(10, 22, 40, 0.06), 0 12px 32px rgba(10, 22, 40, 0.10);
+    }
+    .app-card:hover::after { border-color: rgba(2, 198, 247, 0.2); }
+    .app-code {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 10px;
+      background: rgba(142, 199, 22, 0.08);
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 6px;
+      border: 1px solid rgba(142, 199, 22, 0.15);
+    }
+    .app-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--near-black);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+    .app-card p {
+      font-size: 0.92rem;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
     /* ── FOOTER ── */
     footer {
       border-top: 1px solid rgba(10, 22, 40, 0.08);
@@ -654,6 +797,8 @@
       .contact-grid,
       .form-row { grid-template-columns: 1fr; gap: 24px; }
       .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .prod-spot-grid { grid-template-columns: 1fr; }
+      .app-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 600px) {
       nav { top: 16px; padding: 10px 18px; gap: 16px; }
@@ -928,108 +1073,108 @@
     </div>
   </section>
 
-  <!-- ── INDUSTRIES ── -->
+  <!-- ── INDUSTRIES / PRODUCT APPLICATION ── -->
   <section id="industries">
-    <span class="section-eyebrow reveal">Who We Serve</span>
-    <h2 class="section-title reveal">Industries<br>we power across Nepal.</h2>
+    <span class="section-eyebrow reveal">Product Applications</span>
+    <h2 class="section-title reveal">Where Satol products<br>work in Nepal.</h2>
     <p class="section-sub reveal">
-      Satol's products are built for real industrial and institutional environments. Here's where they go.
+      Every industry below has specific Satol chemicals — matched to the job, not generic off-the-shelf.
     </p>
-    <div class="why-grid">
-      <div class="why-card reveal">
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        </div>
+    <div class="app-grid">
+      <div class="app-card reveal">
+        <div class="app-code">SATOL SD1 · SD2 · SD5</div>
         <h3>Breweries &amp; Beverages</h3>
-        <p>Cleaning and hygiene chemicals for breweries, bottling plants, and beverage production — tanks, lines, fillers, and packaging equipment.</p>
+        <p>CIP cleaners, kettle descalers, line cleaners, and packaging rinses — the full brewery hygiene cycle from mash to bottle.</p>
       </div>
-      <div class="why-card reveal">
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
+      <div class="app-card reveal">
+        <div class="app-code">SATOL S1 · S2 · PROTECT</div>
         <h3>Dairy &amp; Food Processing</h3>
-        <p>GMP-compatible cleaning solutions for dairy plants, food processing units, snacks, and ready-to-eat facilities — ISO 22000 aligned.</p>
+        <p>GMP-compatible surface cleaners, sanitizers, and disinfectants for processing lines, storage, and packaging — ISO 22000 aligned.</p>
       </div>
-      <div class="why-card reveal">
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
+      <div class="app-card reveal">
+        <div class="app-code">SATOL SD1 · SD9 · S1 · S2</div>
         <h3>Hotels &amp; Hospitality</h3>
-        <p>Full housekeeping, kitchen, laundry, and floor care range for hotels, resorts, and guest houses — the backbone of institutional cleaning in Nepal.</p>
+        <p>Kitchen dishwash, grill cleaner, bathroom sanitizer, hard surface cleaner — the institutional housekeeping toolkit used across Nepal's hotels.</p>
       </div>
-      <div class="why-card reveal">
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-        </div>
+      <div class="app-card reveal">
+        <div class="app-code">SATOL PROTECT · QUAT</div>
         <h3>Healthcare &amp; Hospitals</h3>
-        <p>Infection control chemicals, disinfectants, and sanitary cleaners for hospitals, clinics, and diagnostic centers — SATOL PROTECT and SATONIL QUAT range.</p>
+        <p>Infection control disinfectants and quaternary ammonium sanitizers for wards, OTs, diagnostic centers, and isolation areas.</p>
       </div>
-      <div class="why-card reveal">
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        </div>
+      <div class="app-card reveal">
+        <div class="app-code">SATOL S2 · S1 · SD5</div>
         <h3>Poultry &amp; Fisheries</h3>
-        <p>Biosecurity cleaning solutions and aquaculture chemicals for poultry farms and fisheries — designed for the specific hygiene demands of these sectors.</p>
+        <p>Biosecurity surface cleaners, equipment sanitizers, and aquaculture water treatment chemicals — designed for farm and hatchery hygiene.</p>
       </div>
-      <div class="why-card reveal">
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-        </div>
+      <div class="app-card reveal">
+        <div class="app-code">SATOL S2 · BLOSS · SD1</div>
         <h3>Retail, Education &amp; Government</h3>
-        <p>Institutional cleaning for shopping malls, schools, universities, government buildings, and office complexes — SATOL S-series and floor care range.</p>
+        <p>Hard surface cleaner, marble crystallizer, and general disinfectant for malls, schools, universities, and office complexes — daily maintenance made simple.</p>
       </div>
     </div>
   </section>
 
-  <!-- ── ABOUT / WHY US ── -->
+  <!-- ── ABOUT / PRODUCT SPOTLIGHT ── -->
   <section id="about" style="background:#F4F8FA;">
-    <span class="section-eyebrow reveal">About Innovision Nepal</span>
-    <h2 class="section-title reveal">Your single point<br>for Satol in Nepal.</h2>
+    <span class="section-eyebrow reveal">Product Spotlight</span>
+    <h2 class="section-title reveal">The Satol products<br>we bring to Nepal.</h2>
     <p class="section-sub reveal">
-      We don't just supply chemicals — we connect Nepali businesses to one of India's most trusted specialty cleaning manufacturers.
+      From hotel dishwash to brewery CIP — every product below is available across Nepal through Innovision.
     </p>
-    <div class="why-grid">
-      <div class="why-card reveal">
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <h3>Sole Distributor Rights</h3>
-        <p>Exclusive rights to distribute Satol Chemicals' full product range across Nepal. No other distributor — one source, complete access.</p>
-      </div>
-      <div class="why-card reveal">
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        </div>
-        <h3>India's 25-Year Manufacturer</h3>
-        <p>Satol has been manufacturing specialty cleaning and hygiene solutions since 1999 — GMP and FDA certified plant in Gujarat, ISO 9001:2015 and ISO 22000:2018 certified.</p>
-      </div>
-      <div class="why-card reveal">
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
-        <h3>Local Support, Fast Response</h3>
-        <p>Based in Nepal, we handle orders, delivery, and after-sales support locally — no waiting for India-based logistics for every query.</p>
-      </div>
-      <div class="why-card reveal">
-        <div class="why-icon">
+    <div class="prod-spot-grid">
+      <div class="prod-spot-card reveal">
+        <div class="prod-spot-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
         </div>
-        <h3>Multi-Industry Expertise</h3>
-        <p>From breweries to hotels, dairy to retail — we understand the different cleaning needs across sectors and match the right Satol product to the job.</p>
+        <div class="prod-spot-code">SATOL SD1</div>
+        <h3>Manual Dishwash Cleaner</h3>
+        <p>Hotel &amp; restaurant standard — concentrated grease cutter.</p>
+        <div class="prod-spot-tag">Kitchen &amp; Dishwash</div>
       </div>
-      <div class="why-card reveal">
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      <div class="prod-spot-card reveal">
+        <div class="prod-spot-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
-        <h3>Training &amp; Technical Guidance</h3>
-        <p>We provide product guidance, usage recommendations, and dilution training — so your team gets the right results from every Satol chemical.</p>
+        <div class="prod-spot-code">SATOL S1</div>
+        <h3>Bathroom Cleaner &amp; Sanitizer</h3>
+        <p>Built-in sanitizer for washrooms, restrooms, and toilet bowls.</p>
+        <div class="prod-spot-tag">Institutional Cleaning</div>
       </div>
-      <div class="why-card reveal">
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      <div class="prod-spot-card reveal">
+        <div class="prod-spot-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
         </div>
-        <h3>Eco-Friendly Focus</h3>
-        <p>Satol's R&D emphasis on eco-friendly, environmentally responsible formulations — and we bring that same focus to how we recommend and supply products in Nepal.</p>
+        <div class="prod-spot-code">SATOL SD5</div>
+        <h3>De-Scaler</h3>
+        <p>Scale &amp; lime removal for kettles, boilers, and coffee machines.</p>
+        <div class="prod-spot-tag">Kitchen &amp; Dishwash</div>
+      </div>
+      <div class="prod-spot-card reveal">
+        <div class="prod-spot-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="prod-spot-code">SATFAB ULTRAWASH</div>
+        <h3>Liquid Laundry Detergent</h3>
+        <p>Concentrated with alkali booster &amp; optical brightener — for room linen &amp; uniforms.</p>
+        <div class="prod-spot-tag">Laundry &amp; Fabric Care</div>
+      </div>
+      <div class="prod-spot-card reveal">
+        <div class="prod-spot-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <div class="prod-spot-code">SATOL BLOSS</div>
+        <h3>Floor Crystallizer (Powder)</h3>
+        <p>High-shine marble &amp; calcareous floor finish — hotel lobbies &amp; corridors.</p>
+        <div class="prod-spot-tag">Floor &amp; Surface Care</div>
+      </div>
+      <div class="prod-spot-card reveal">
+        <div class="prod-spot-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <div class="prod-spot-code">SATOL SANITIZER</div>
+        <h3>Hand Sanitizer Gel</h3>
+        <p>Alcohol-based institutional hand hygiene — hotels, hospitals, offices, food service.</p>
+        <div class="prod-spot-tag">Personal Care &amp; Hygiene</div>
       </div>
     </div>
   </section>
