@@ -38,8 +38,8 @@
       font-weight: 400;
       font-size: 16px;
       line-height: 1.7;
-      color: var(--warm-black);
-      background: var(--cream);
+      color: var(--near-black);
+      background: var(--off-white);
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
@@ -160,6 +160,34 @@
     }
     .nav-cta svg { width: 14px; height: 14px; transition: transform 0.3s var(--ease-spring); }
     .nav-cta:hover svg { transform: translateX(3px); }
+
+    /* ── NAV LANGUAGES ── */
+    .nav-langs {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+    .nav-lang-pill {
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(10, 22, 40, 0.06);
+      color: var(--muted);
+      border: 1px solid rgba(10, 22, 40, 0.06);
+      transition: background 0.25s var(--ease-smooth), color 0.25s var(--ease-smooth), border-color 0.25s var(--ease-smooth);
+      white-space: nowrap;
+    }
+    .nav-lang-pill:hover {
+      background: var(--cyan-deep);
+      color: var(--white);
+      border-color: var(--cyan-deep);
+    }
+    .nav-lang-pill.active {
+      background: var(--cyan);
+      color: var(--near-black);
+      border-color: var(--cyan);
+    }
 
     /* ── HERO ── */
     .hero {
@@ -642,7 +670,7 @@
   <!-- ── NAV ── -->
   <nav id="nav">
     <a href="#" class="nav-brand">
-      <span class="mark">IN</span>
+      <img src="favicon.png" alt="" width="22" height="22" style="display:block; border-radius:50%; background:var(--cyan-deep);">
       Innovision Nepal
     </a>
     <ul class="nav-links">
@@ -650,6 +678,12 @@
       <li><a href="#services">Services</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <div class="nav-langs">
+      <span class="nav-lang-pill">EN</span>
+      <span class="nav-lang-pill">NP</span>
+      <span class="nav-lang-pill">HI</span>
+      <span class="nav-lang-pill">BN</span>
+    </div>
     <a href="#contact" class="nav-cta">
       Get in touch
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -788,14 +822,6 @@
         <div class="ci-divider"></div>
         <div class="ci-label">Service Area</div>
         <div class="ci-value">Nepal</div>
-        <div class="ci-divider"></div>
-        <div class="ci-label">Languages</div>
-        <div class="ci-lang">
-          <span>English</span>
-          <span>Nepali</span>
-          <span>Hindi</span>
-          <span>Bengali</span>
-        </div>
       </div>
       <form class="contact-form reveal" action="mailto:info@innovisionnepal.com.np" method="post" enctype="text/plain">
         <div class="form-row">
