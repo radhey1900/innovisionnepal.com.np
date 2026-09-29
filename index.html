@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Innovision Nepal Pvt. Ltd. — Hospitality Service in Nepal. Contact us: +977 985-2067865">
+  <title>Innovision Nepal Pvt. Ltd.</title>
+  <link rel="icon" href="favicon.png" type="image/png">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --clr-primary: #0f5257;
+      --clr-accent: #2dc4b4;
+      --clr-dark: #0a2a2c;
+      --clr-light: #f4f7f6;
+      --clr-text: #222;
+      --clr-muted: #5a6b6b;
+      --maxw: 1100px;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      color: var(--clr-text);
+      background: var(--clr-light);
+      line-height: 1.6;
+    }
+
+    /* ─── HEADER / HERO ─── */
+    header {
+      background: linear-gradient(135deg, var(--clr-dark) 0%, var(--clr-primary) 100%);
+      color: #fff;
+      padding: 0 24px;
+      position: relative;
+    }
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 60px 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 15% 85%, rgba(45,196,180,0.18) 0%, transparent 50%),
+        radial-gradient(circle at 85% 15%, rgba(15,82,87,0.35) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 700px; }
+    .logo-mark {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background: var(--clr-accent);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 36px; font-weight: 800;
+      color: var(--clr-dark);
+      margin: 0 auto 28px;
+      box-shadow: 0 0 0 8px rgba(45,196,180,0.15);
+    }
+    .hero h1 {
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+      line-height: 1.15;
+    }
+    .hero .tagline {
+      font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 32px;
+      max-width: 540px;
+    }
+    .hero-cta {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.15s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary {
+      background: var(--clr-accent);
+      color: var(--clr-dark);
+      box-shadow: 0 4px 20px rgba(45,196,180,0.35);
+    }
+    .btn-outline {
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255,255,255,0.45);
+    }
+    .btn-outline:hover { border-color: #fff; }
+
+    /* ─── NAV ─── */
+    nav {
+      background: rgba(10,42,44,0.92);
+      backdrop-filter: blur(12px);
+      padding: 14px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(45,196,180,0.2);
+    }
+    .nav-brand {
+      font-weight: 700; font-size: 1.1rem;
+      color: var(--clr-accent);
+      text-decoration: none;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .nav-links {
+      display: flex; gap: 24px; list-style: none;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--clr-accent); }
+
+    /* ─── SECTIONS ─── */
+    section { padding: 72px 24px; max-width: var(--maxw); margin: 0 auto; }
+    .section-label {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--clr-accent);
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+      font-weight: 800;
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+    .section-sub {
+      color: var(--clr-muted);
+      max-width: 620px;
+      margin-bottom: 40px;
+      font-size: 1.05rem;
+    }
+
+    /* ─── ABOUT ─── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .about-image {
+      background: var(--clr-primary);
+      border-radius: 16px;
+      height: 340px;
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.2);
+      font-size: 4rem;
+    }
+    .about-text p {
+      color: var(--clr-muted);
+      margin-bottom: 16px;
+      font-size: 1.05rem;
+    }
+
+    /* ─── SERVICES ─── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .service-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 32px 28px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.1);
+    }
+    .service-icon {
+      width: 56px; height: 56px;
+      border-radius: 12px;
+      background: rgba(45,196,180,0.12);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 26px;
+      margin-bottom: 18px;
+    }
+    .service-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .service-card p {
+      color: var(--clr-muted);
+      font-size: 0.95rem;
+    }
+
+    /* ─── CONTACT ─── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+    .contact-info-card {
+      background: var(--clr-dark);
+      color: #fff;
+      border-radius: 16px;
+      padding: 40px;
+    }
+    .contact-info-card h3 {
+      color: var(--clr-accent);
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .contact-item {
+      display: flex; flex-direction: column;
+      gap: 6px;
+      margin-bottom: 22px;
+    }
+    .contact-item .label {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .contact-item .value {
+      font-size: 1.15rem;
+      font-weight: 600;
+    }
+    .contact-item a {
+      color: var(--clr-accent);
+      text-decoration: none;
+    }
+    .contact-item a:hover { text-decoration: underline; }
+
+    .contact-form {
+      background: #fff;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    .form-group { margin-bottom: 16px; }
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--clr-muted);
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1.5px solid #dde3e3;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: inherit;
+      background: var(--clr-light);
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--clr-accent);
+    }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-submit {
+      width: 100%;
+      padding: 14px;
+      background: var(--clr-primary);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .form-submit:hover { background: var(--clr-accent); color: var(--clr-dark); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--clr-dark);
+      color: rgba(255,255,255,0.6);
+      padding: 32px 24px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    footer a { color: var(--clr-accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .about-grid,
+      .contact-grid,
+      .form-row { grid-template-columns: 1fr; }
+      .hero { min-height: 70vh; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav>
+    <a href="#" class="nav-brand">&#9670; Innovision Nepal</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <header>
+    <div class="hero">
+      <div class="hero-content">
+        <div class="logo-mark">IN</div>
+        <h1>Innovision Nepal<br>Pvt. Ltd.</h1>
+        <p class="tagline">Delivering hospitality solutions with vision, integrity, and care across Nepal.</p>
+        <div class="hero-cta">
+          <a href="#contact" class="btn btn-primary">Get in Touch</a>
+          <a href="mailto:info@innovisionnepal.com.np" class="btn btn-outline">info@innovisionnepal.com.np</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── ABOUT ── -->
+  <section id="about">
+    <span class="section-label">Who We Are</span>
+    <h2 class="section-title">About Innovision Nepal</h2>
+    <div class="about-grid">
+      <div class="about-image">
+        <span>&#9733;</span>
+      </div>
+      <div class="about-text">
+        <p>Innovision Nepal Pvt. Ltd. is a hospitality service company based in Nepal, committed to delivering quality service and creative solutions to clients across the country.</p>
+        <p>We bring together a dedicated team fluent in <strong>English, Nepali, Hindi, and Bengali</strong> — ensuring clear communication and personal attention with every project and every guest.</p>
+        <p>Whether you are a local business, an international visitor, or a partner looking to build something meaningful, we are here to help you succeed.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SERVICES ── -->
+  <section id="services" style="background:#fff;">
+    <span class="section-label">What We Do</span>
+    <h2 class="section-title">Our Services</h2>
+    <p class="section-sub">Comprehensive hospitality solutions tailored to your needs — from planning to execution, we handle it all.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">&#127970;</div>
+        <h3>Hospitality Management</h3>
+        <p>End-to-end management of hospitality operations, ensuring every guest experience meets the highest standards.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">&#127968;</div>
+        <h3>Event Coordination</h3>
+        <p>Planning and coordination of events, gatherings, and experiences that leave a lasting impression.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">&#128222;</div>
+        <h3>Guest Services</h3>
+        <p>Personalized guest support available in multiple languages — English, Nepali, Hindi, and Bengali.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">&#127963;</div>
+        <h3>Consulting &amp; Advisory</h3>
+        <p>Expert guidance for businesses looking to enter or grow within Nepal's hospitality sector.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">&#128205;</div>
+        <h3>Venue Solutions</h3>
+        <p>Sourcing, vetting, and managing venue partnerships to match your event or project requirements.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">&#128101;</div>
+        <h3>Multilingual Support</h3>
+        <p>Full support across English, Nepali, Hindi, and Bengali — so nothing gets lost in translation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section id="contact">
+    <span class="section-label">Get in Touch</span>
+    <h2 class="section-title">Contact Us</h2>
+    <p class="section-sub">Have a question, a project, or just want to say hello? Reach out — we respond fast.</p>
+    <div class="contact-grid">
+      <div class="contact-info-card">
+        <h3>Contact Info</h3>
+        <div class="contact-item">
+          <span class="label">Phone / WhatsApp</span>
+          <a href="tel:+9779852067865" class="value">+977 985-2067865</a>
+        </div>
+        <div class="contact-item">
+          <span class="label">Email</span>
+          <a href="mailto:info@innovisionnepal.com.np" class="value">info@innovisionnepal.com.np</a>
+        </div>
+        <div class="contact-item">
+          <span class="label">Service Area</span>
+          <span class="value">Nepal</span>
+        </div>
+        <div class="contact-item">
+          <span class="label">Languages</span>
+          <span class="value">English &middot; Nepali &middot; Hindi &middot; Bengali</span>
+        </div>
+      </div>
+      <form class="contact-form" action="mailto:info@innovisionnepal.com.np" method="post" enctype="text/plain">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject" placeholder="How can we help?">
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell us about your project or inquiry..." required></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <p>&copy; <span id="year"></span> Innovision Nepal Pvt. Ltd. &mdash; Nepal</p>
+    <p style="margin-top:8px;">
+      <a href="mailto:info@innovisionnepal.com.np">info@innovisionnepal.com.np</a>
+      &nbsp;&middot;&nbsp;
+      +977 985-2067865
+    </p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
