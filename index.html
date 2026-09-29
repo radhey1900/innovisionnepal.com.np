@@ -3,44 +3,167 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Innovision Nepal Pvt. Ltd. — Hospitality Service in Nepal. Contact us: +977 985-2067865">
+  <meta name="description" content="Innovision Nepal Pvt. Ltd. — Hospitality Service in Nepal. English, Nepali, Hindi, Bengali.">
   <title>Innovision Nepal Pvt. Ltd.</title>
   <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
+    /* ── RESET & BASE ── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --clr-primary: #0f5257;
-      --clr-accent: #2dc4b4;
-      --clr-dark: #0a2a2c;
-      --clr-light: #f4f7f6;
-      --clr-text: #222;
-      --clr-muted: #5a6b6b;
-      --maxw: 1100px;
+      --cream:       #FDFBF7;
+      --espresso:    #1C1917;
+      --warm-black:  #292524;
+      --muted-char:  #78716C;
+      --sage:        #84A98C;
+      --sage-deep:   #6A8F6E;
+      --accent:      #B8A06E;   /* warm gold */
+      --accent-soft: #D4C4A8;
+      --radius:      28px;
+      --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+      --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
     }
+
+    html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      color: var(--clr-text);
-      background: var(--clr-light);
-      line-height: 1.6;
+      font-family: 'Jost', system-ui, sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--warm-black);
+      background: var(--cream);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
-    /* ─── HEADER / HERO ─── */
-    header {
-      background: linear-gradient(135deg, var(--clr-dark) 0%, var(--clr-primary) 100%);
-      color: #fff;
-      padding: 0 24px;
-      position: relative;
+    /* ── TYPOGRAPHY ── */
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      color: var(--espresso);
     }
-    .hero {
-      min-height: 85vh;
+    p { color: var(--muted-char); }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.85s var(--ease-smooth), transform 0.85s var(--ease-smooth);
+    }
+    .reveal.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
-      text-align: center;
-      padding: 60px 24px 80px;
+      gap: 28px;
+      padding: 12px 28px;
+      background: rgba(253, 251, 247, 0.82);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-radius: 999px;
+      box-shadow:
+        0 1px 0 rgba(28, 25, 23, 0.06),
+        0 8px 32px rgba(28, 25, 23, 0.06);
+      transition: box-shadow 0.4s var(--ease-smooth), transform 0.4s var(--ease-smooth);
+    }
+    nav.scrolled {
+      box-shadow:
+        0 1px 0 rgba(28, 25, 23, 0.08),
+        0 12px 40px rgba(28, 25, 23, 0.10);
+    }
+    .nav-brand {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--espresso);
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .nav-brand .mark {
+      width: 26px; height: 26px;
+      background: var(--espresso);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--cream);
+      font-size: 12px;
+      font-weight: 700;
+      font-family: 'Jost', sans-serif;
+    }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-links a {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--muted-char);
+      letter-spacing: 0.02em;
+      position: relative;
+      transition: color 0.25s var(--ease-smooth);
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background: var(--accent);
+      transition: width 0.35s var(--ease-spring);
+    }
+    .nav-links a:hover { color: var(--espresso); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 10px 22px;
+      border-radius: 999px;
+      background: var(--espresso);
+      color: var(--cream);
+      transition: background 0.3s var(--ease-smooth), transform 0.3s var(--ease-spring);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-cta:hover {
+      background: var(--accent);
+      transform: translateY(-2px);
+    }
+    .nav-cta svg { width: 14px; height: 14px; transition: transform 0.3s var(--ease-spring); }
+    .nav-cta:hover svg { transform: translateX(3px); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 24px 80px;
       position: relative;
       overflow: hidden;
     }
@@ -49,222 +172,365 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(circle at 15% 85%, rgba(45,196,180,0.18) 0%, transparent 50%),
-        radial-gradient(circle at 85% 15%, rgba(15,82,87,0.35) 0%, transparent 50%);
+        radial-gradient(ellipse 60% 50% at 80% 20%, rgba(132, 169, 140, 0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 60% at 15% 85%, rgba(184, 160, 110, 0.08) 0%, transparent 70%);
       pointer-events: none;
     }
-    .hero-content { position: relative; z-index: 1; max-width: 700px; }
-    .logo-mark {
-      width: 80px; height: 80px;
-      border-radius: 50%;
-      background: var(--clr-accent);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 36px; font-weight: 800;
-      color: var(--clr-dark);
-      margin: 0 auto 28px;
-      box-shadow: 0 0 0 8px rgba(45,196,180,0.15);
+    .hero-inner {
+      max-width: 1200px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-text { display: flex; flex-direction: column; gap: 24px; }
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--sage-deep);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      width: 28px;
+      height: 1px;
+      background: var(--sage-deep);
     }
     .hero h1 {
-      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      font-size: clamp(3rem, 5.5vw, 4.8rem);
       font-weight: 800;
-      letter-spacing: -0.02em;
-      margin-bottom: 12px;
-      line-height: 1.15;
+      line-height: 1.05;
+      letter-spacing: -0.025em;
+      color: var(--espresso);
     }
-    .hero .tagline {
-      font-size: clamp(1.05rem, 2.2vw, 1.25rem);
-      color: rgba(255,255,255,0.8);
-      margin-bottom: 32px;
-      max-width: 540px;
+    .hero h1 .accent-word {
+      font-style: italic;
+      color: var(--sage-deep);
+      font-weight: 600;
     }
-    .hero-cta {
+    .hero-lead {
+      font-size: 1.1rem;
+      line-height: 1.75;
+      max-width: 480px;
+      color: var(--muted-char);
+    }
+    .hero-actions {
       display: flex;
       gap: 14px;
+      align-items: center;
+      margin-top: 8px;
       flex-wrap: wrap;
+    }
+
+    /* ── HERO IMAGE ── */
+    .hero-visual {
+      position: relative;
+      display: flex;
+      align-items: center;
       justify-content: center;
     }
+    .hero-image-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4/5;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--espresso);
+      box-shadow:
+        0 4px 20px rgba(28, 25, 23, 0.10),
+        0 20px 60px rgba(28, 25, 23, 0.12);
+    }
+    .hero-image-frame::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(253, 251, 247, 0.12);
+      border-radius: var(--radius);
+      pointer-events: none;
+    }
+    .hero-image-frame .img-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 16px;
+      color: rgba(253, 251, 247, 0.3);
+      font-size: 4rem;
+      background:
+        radial-gradient(circle at 30% 40%, rgba(132, 169, 140, 0.15) 0%, transparent 60%),
+        radial-gradient(circle at 70% 70%, rgba(184, 160, 110, 0.10) 0%, transparent 50%);
+    }
+    .hero-image-frame .img-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: rgba(253, 251, 247, 0.25);
+      font-family: 'Jost', sans-serif;
+      font-weight: 400;
+    }
+
+    /* ── BUTTONS ── */
     .btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 14px 28px;
-      border-radius: 8px;
-      font-size: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 15px 32px;
+      border-radius: 999px;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.9rem;
       font-weight: 600;
-      text-decoration: none;
-      transition: transform 0.15s, box-shadow 0.15s;
+      letter-spacing: 0.02em;
       cursor: pointer;
       border: none;
+      transition: transform 0.35s var(--ease-spring), box-shadow 0.35s var(--ease-smooth), background 0.35s var(--ease-smooth);
+      will-change: transform;
     }
-    .btn:hover { transform: translateY(-2px); }
+    .btn:active { transform: scale(0.97); }
+
     .btn-primary {
-      background: var(--clr-accent);
-      color: var(--clr-dark);
-      box-shadow: 0 4px 20px rgba(45,196,180,0.35);
+      background: var(--espresso);
+      color: var(--cream);
+      box-shadow: 0 4px 24px rgba(28, 25, 23, 0.18);
     }
-    .btn-outline {
+    .btn-primary:hover {
+      background: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 32px rgba(184, 160, 110, 0.30);
+    }
+    .btn-primary svg {
+      width: 16px; height: 16px;
+      transition: transform 0.35s var(--ease-spring);
+    }
+    .btn-primary:hover svg { transform: translateX(4px); }
+
+    .btn-ghost {
       background: transparent;
-      color: #fff;
-      border: 2px solid rgba(255,255,255,0.45);
+      color: var(--espresso);
+      border: 1.5px solid rgba(28, 25, 23, 0.15);
+      padding: 14px 28px;
     }
-    .btn-outline:hover { border-color: #fff; }
+    .btn-ghost:hover {
+      border-color: var(--espresso);
+      transform: translateY(-2px);
+    }
 
-    /* ─── NAV ─── */
-    nav {
-      background: rgba(10,42,44,0.92);
-      backdrop-filter: blur(12px);
-      padding: 14px 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      border-bottom: 1px solid rgba(45,196,180,0.2);
+    /* ── SECTIONS ── */
+    section {
+      padding: 100px 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
     }
-    .nav-brand {
-      font-weight: 700; font-size: 1.1rem;
-      color: var(--clr-accent);
-      text-decoration: none;
-      display: flex; align-items: center; gap: 8px;
-    }
-    .nav-links {
-      display: flex; gap: 24px; list-style: none;
-    }
-    .nav-links a {
-      color: rgba(255,255,255,0.8);
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 0.95rem;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--clr-accent); }
-
-    /* ─── SECTIONS ─── */
-    section { padding: 72px 24px; max-width: var(--maxw); margin: 0 auto; }
-    .section-label {
-      display: inline-block;
-      font-size: 0.8rem;
-      font-weight: 700;
+    .section-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--clr-accent);
-      margin-bottom: 10px;
+      letter-spacing: 0.2em;
+      color: var(--sage-deep);
+      margin-bottom: 12px;
+      display: block;
     }
     .section-title {
-      font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+      font-size: clamp(2rem, 4vw, 3rem);
       font-weight: 800;
+      line-height: 1.1;
       margin-bottom: 16px;
-      letter-spacing: -0.01em;
+      letter-spacing: -0.02em;
     }
     .section-sub {
-      color: var(--clr-muted);
-      max-width: 620px;
-      margin-bottom: 40px;
       font-size: 1.05rem;
+      max-width: 560px;
+      margin-bottom: 56px;
+      line-height: 1.7;
     }
 
-    /* ─── ABOUT ─── */
+    /* ── ABOUT ── */
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: center;
+      gap: 64px;
+      align-items: start;
     }
-    .about-image {
-      background: var(--clr-primary);
-      border-radius: 16px;
-      height: 340px;
-      display: flex; align-items: center; justify-content: center;
-      color: rgba(255,255,255,0.2);
-      font-size: 4rem;
+    .about-card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 40px;
+      box-shadow:
+        0 1px 0 rgba(28, 25, 23, 0.04),
+        0 4px 16px rgba(28, 25, 23, 0.04),
+        0 16px 48px rgba(28, 25, 23, 0.06);
+      position: relative;
     }
-    .about-text p {
-      color: var(--clr-muted);
-      margin-bottom: 16px;
-      font-size: 1.05rem;
+    .about-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: var(--radius);
+      border: 1px solid rgba(28, 25, 23, 0.04);
+      pointer-events: none;
+    }
+    .about-card .quote-mark {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      line-height: 0.8;
+      color: var(--accent-soft);
+      margin-bottom: 12px;
+    }
+    .about-card blockquote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-style: italic;
+      line-height: 1.6;
+      color: var(--espresso);
+      margin-bottom: 20px;
+    }
+    .about-card .attr {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 600;
+      color: var(--muted-char);
     }
 
-    /* ─── SERVICES ─── */
+    .about-body p {
+      font-size: 1.05rem;
+      margin-bottom: 16px;
+      line-height: 1.75;
+    }
+    .about-body .highlight {
+      color: var(--espresso);
+      font-weight: 600;
+    }
+
+    /* ── SERVICES ── */
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
     }
     .service-card {
       background: #fff;
-      border-radius: 14px;
+      border-radius: calc(var(--radius) - 4px);
       padding: 32px 28px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-      transition: transform 0.2s, box-shadow 0.2s;
-      border: 1px solid rgba(0,0,0,0.04);
+      transition: transform 0.4s var(--ease-spring), box-shadow 0.4s var(--ease-smooth);
+      box-shadow:
+        0 1px 0 rgba(28, 25, 23, 0.04),
+        0 2px 8px rgba(28, 25, 23, 0.04);
+      border: 1px solid rgba(28, 25, 23, 0.04);
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      border: 1px solid rgba(28, 25, 23, 0.03);
+      pointer-events: none;
+      transition: border-color 0.4s var(--ease-smooth);
     }
     .service-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 28px rgba(0,0,0,0.1);
+      transform: translateY(-6px);
+      box-shadow:
+        0 2px 8px rgba(28, 25, 23, 0.06),
+        0 12px 32px rgba(28, 25, 23, 0.10);
     }
+    .service-card:hover::after { border-color: rgba(184, 160, 110, 0.2); }
     .service-icon {
-      width: 56px; height: 56px;
+      width: 44px; height: 44px;
       border-radius: 12px;
-      background: rgba(45,196,180,0.12);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 26px;
+      background: rgba(132, 169, 140, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       margin-bottom: 18px;
+      color: var(--sage-deep);
     }
+    .service-icon svg { width: 20px; height: 20px; }
     .service-card h3 {
-      font-size: 1.2rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
       font-weight: 700;
       margin-bottom: 8px;
+      color: var(--espresso);
     }
     .service-card p {
-      color: var(--clr-muted);
-      font-size: 0.95rem;
+      font-size: 0.9rem;
+      line-height: 1.65;
     }
 
-    /* ─── CONTACT ─── */
+    /* ── CONTACT ── */
     .contact-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 40px;
+      align-items: start;
     }
-    .contact-info-card {
-      background: var(--clr-dark);
-      color: #fff;
-      border-radius: 16px;
+    .contact-info {
+      background: var(--espresso);
+      border-radius: var(--radius);
       padding: 40px;
+      color: var(--cream);
+      box-shadow: 0 8px 32px rgba(28, 25, 23, 0.15);
     }
-    .contact-info-card h3 {
-      color: var(--clr-accent);
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin-bottom: 24px;
+    .contact-info .ci-label {
+      font-size: 0.68rem;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-    .contact-item {
-      display: flex; flex-direction: column;
-      gap: 6px;
-      margin-bottom: 22px;
-    }
-    .contact-item .label {
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.5);
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-    .contact-item .value {
-      font-size: 1.15rem;
+      letter-spacing: 0.18em;
+      color: rgba(253, 251, 247, 0.4);
       font-weight: 600;
+      margin-bottom: 6px;
     }
-    .contact-item a {
-      color: var(--clr-accent);
-      text-decoration: none;
+    .contact-info .ci-value {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
-    .contact-item a:hover { text-decoration: underline; }
+    .contact-info .ci-value a {
+      color: var(--accent-soft);
+      transition: color 0.25s var(--ease-smooth);
+    }
+    .contact-info .ci-value a:hover { color: #fff; }
+    .contact-info .ci-divider {
+      height: 1px;
+      background: rgba(253, 251, 247, 0.08);
+      margin: 20px 0;
+    }
+    .contact-info .ci-lang {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .contact-info .ci-lang span {
+      font-size: 0.78rem;
+      background: rgba(253, 251, 247, 0.08);
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-weight: 500;
+      color: rgba(253, 251, 247, 0.7);
+    }
 
     .contact-form {
       background: #fff;
-      border-radius: 16px;
+      border-radius: var(--radius);
       padding: 40px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      box-shadow:
+        0 1px 0 rgba(28, 25, 23, 0.04),
+        0 4px 16px rgba(28, 25, 23, 0.04),
+        0 16px 48px rgba(28, 25, 23, 0.06);
+      border: 1px solid rgba(28, 25, 23, 0.04);
     }
     .form-row {
       display: grid;
@@ -275,176 +541,265 @@
     .form-group { margin-bottom: 16px; }
     .form-group label {
       display: block;
-      font-size: 0.85rem;
+      font-size: 0.78rem;
       font-weight: 600;
-      margin-bottom: 6px;
-      color: var(--clr-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted-char);
+      margin-bottom: 8px;
     }
     .form-group input,
-    .form-group textarea,
-    .form-group select {
+    .form-group textarea {
       width: 100%;
-      padding: 12px 14px;
-      border: 1.5px solid #dde3e3;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-family: inherit;
-      background: var(--clr-light);
-      transition: border-color 0.2s;
+      padding: 13px 16px;
+      border: 1.5px solid rgba(28, 25, 23, 0.10);
+      border-radius: 10px;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.95rem;
+      background: var(--cream);
+      color: var(--espresso);
+      transition: border-color 0.25s var(--ease-smooth), box-shadow 0.25s var(--ease-smooth);
     }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: rgba(120, 113, 108, 0.4); }
     .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus {
+    .form-group textarea:focus {
       outline: none;
-      border-color: var(--clr-accent);
+      border-color: var(--sage-deep);
+      box-shadow: 0 0 0 3px rgba(132, 169, 140, 0.12);
     }
     .form-group textarea { resize: vertical; min-height: 120px; }
     .form-submit {
       width: 100%;
-      padding: 14px;
-      background: var(--clr-primary);
-      color: #fff;
+      padding: 15px;
+      background: var(--espresso);
+      color: var(--cream);
       border: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    .form-submit:hover { background: var(--clr-accent); color: var(--clr-dark); }
-
-    /* ─── FOOTER ─── */
-    footer {
-      background: var(--clr-dark);
-      color: rgba(255,255,255,0.6);
-      padding: 32px 24px;
-      text-align: center;
+      border-radius: 10px;
+      font-family: 'Jost', sans-serif;
       font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      transition: background 0.3s var(--ease-smooth), transform 0.3s var(--ease-spring);
     }
-    footer a { color: var(--clr-accent); text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
+    .form-submit:hover {
+      background: var(--sage-deep);
+      transform: translateY(-2px);
+    }
 
-    /* ─── RESPONSIVE ─── */
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid rgba(28, 25, 23, 0.06);
+      padding: 40px 24px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--muted-char);
+    }
+    footer .foot-row {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+    footer a {
+      color: var(--muted-char);
+      transition: color 0.25s var(--ease-smooth);
+    }
+    footer a:hover { color: var(--espresso); }
+    footer .foot-copy {
+      font-size: 0.78rem;
+      color: rgba(120, 113, 108, 0.6);
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+      .hero-visual { order: -1; }
+      .hero-image-frame { max-width: 340px; margin: 0 auto; aspect-ratio: 4/3; }
       .about-grid,
       .contact-grid,
-      .form-row { grid-template-columns: 1fr; }
-      .hero { min-height: 70vh; }
+      .form-row { grid-template-columns: 1fr; gap: 24px; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      nav { top: 16px; padding: 10px 18px; gap: 16px; }
+      .nav-links { display: none; }
+      section { padding: 64px 16px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .hero-image-frame { max-width: 280px; }
+      .hero h1 { font-size: 2.6rem; }
     }
   </style>
 </head>
 <body>
 
   <!-- ── NAV ── -->
-  <nav>
-    <a href="#" class="nav-brand">&#9670; Innovision Nepal</a>
+  <nav id="nav">
+    <a href="#" class="nav-brand">
+      <span class="mark">IN</span>
+      Innovision Nepal
+    </a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <a href="#contact" class="nav-cta">
+      Get in touch
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
   </nav>
 
   <!-- ── HERO ── -->
-  <header>
-    <div class="hero">
-      <div class="hero-content">
-        <div class="logo-mark">IN</div>
-        <h1>Innovision Nepal<br>Pvt. Ltd.</h1>
-        <p class="tagline">Delivering hospitality solutions with vision, integrity, and care across Nepal.</p>
-        <div class="hero-cta">
-          <a href="#contact" class="btn btn-primary">Get in Touch</a>
-          <a href="mailto:info@innovisionnepal.com.np" class="btn btn-outline">info@innovisionnepal.com.np</a>
+  <section class="hero" id="home">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <span class="hero-eyebrow reveal">Hospitality Service &middot; Nepal</span>
+        <h1 class="reveal">
+          Where hospitality<br>
+          meets <span class="accent-word">vision</span>.
+        </h1>
+        <p class="hero-lead reveal">
+          Innovision Nepal Pvt. Ltd. delivers thoughtful hospitality solutions — grounded in care, powered by people who speak your language.
+        </p>
+        <div class="hero-actions reveal">
+          <a href="#contact" class="btn btn-primary">
+            Start a conversation
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="mailto:info@innovisionnepal.com.np" class="btn btn-ghost">
+            info@innovisionnepal.com.np
+          </a>
+        </div>
+      </div>
+      <div class="hero-visual reveal">
+        <div class="hero-image-frame">
+          <div class="img-placeholder">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            <span class="img-label">Innovision Nepal</span>
+          </div>
         </div>
       </div>
     </div>
-  </header>
+  </section>
 
   <!-- ── ABOUT ── -->
   <section id="about">
-    <span class="section-label">Who We Are</span>
-    <h2 class="section-title">About Innovision Nepal</h2>
+    <span class="section-eyebrow reveal">Who We Are</span>
+    <h2 class="section-title reveal">A hospitality partner<br>that speaks your language.</h2>
+    <p class="section-sub reveal">
+      Based in Nepal, serving clients who value warmth, clarity, and follow-through.
+    </p>
     <div class="about-grid">
-      <div class="about-image">
-        <span>&#9733;</span>
+      <div class="about-card reveal">
+        <div class="quote-mark">&ldquo;</div>
+        <blockquote>
+          We don&rsquo;t just run services&mdash;we build relationships that outlast the project.
+        </blockquote>
+        <div class="attr">Innovision Nepal Pvt. Ltd.</div>
       </div>
-      <div class="about-text">
-        <p>Innovision Nepal Pvt. Ltd. is a hospitality service company based in Nepal, committed to delivering quality service and creative solutions to clients across the country.</p>
-        <p>We bring together a dedicated team fluent in <strong>English, Nepali, Hindi, and Bengali</strong> — ensuring clear communication and personal attention with every project and every guest.</p>
-        <p>Whether you are a local business, an international visitor, or a partner looking to build something meaningful, we are here to help you succeed.</p>
+      <div class="about-body reveal">
+        <p>
+          Innovision Nepal Pvt. Ltd. is a <span class="highlight">hospitality service company</span> operating across Nepal. We bring together experienced people who care about the details that make a stay, an event, or a guest experience genuinely good.
+        </p>
+        <p>
+          Our team works in <span class="highlight">English, Nepali, Hindi, and Bengali</span> — so whether your guests are local, regional, or international, nothing gets lost between one side and the other.
+        </p>
+        <p>
+          From planning to execution to follow-up, we take ownership. You get a single point of contact, clear communication, and a team that treats your reputation as if it were our own.
+        </p>
       </div>
     </div>
   </section>
 
   <!-- ── SERVICES ── -->
-  <section id="services" style="background:#fff;">
-    <span class="section-label">What We Do</span>
-    <h2 class="section-title">Our Services</h2>
-    <p class="section-sub">Comprehensive hospitality solutions tailored to your needs — from planning to execution, we handle it all.</p>
+  <section id="services" style="background: #FAF8F4;">
+    <span class="section-eyebrow reveal">What We Do</span>
+    <h2 class="section-title reveal">Services built<br>around the guest.</h2>
+    <p class="section-sub reveal">
+      Six core areas of focus — each one shaped by real hospitality experience, not theory.
+    </p>
     <div class="services-grid">
-      <div class="service-card">
-        <div class="service-icon">&#127970;</div>
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
         <h3>Hospitality Management</h3>
-        <p>End-to-end management of hospitality operations, ensuring every guest experience meets the highest standards.</p>
+        <p>Day-to-day leadership of hospitality operations — front desk, housekeeping, guest relations — run to a standard you can feel.</p>
       </div>
-      <div class="service-card">
-        <div class="service-icon">&#127968;</div>
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
         <h3>Event Coordination</h3>
-        <p>Planning and coordination of events, gatherings, and experiences that leave a lasting impression.</p>
+        <p>End-to-end planning and coordination for gatherings, launches, and private events — handled discreetly and delivered on time.</p>
       </div>
-      <div class="service-card">
-        <div class="service-icon">&#128222;</div>
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
         <h3>Guest Services</h3>
-        <p>Personalized guest support available in multiple languages — English, Nepali, Hindi, and Bengali.</p>
+        <p>Personalised guest support in four languages — English, Nepali, Hindi, and Bengali — from arrival to departure and everything in between.</p>
       </div>
-      <div class="service-card">
-        <div class="service-icon">&#127963;</div>
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+        </div>
         <h3>Consulting &amp; Advisory</h3>
-        <p>Expert guidance for businesses looking to enter or grow within Nepal's hospitality sector.</p>
+        <p>Practical guidance for businesses entering or expanding within Nepal&rsquo;s hospitality sector — realistic, grounded, and actionable.</p>
       </div>
-      <div class="service-card">
-        <div class="service-icon">&#128205;</div>
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
         <h3>Venue Solutions</h3>
-        <p>Sourcing, vetting, and managing venue partnerships to match your event or project requirements.</p>
+        <p>Sourcing, vetting, and managing venue partnerships — so you get spaces that fit the event, the budget, and the guest experience.</p>
       </div>
-      <div class="service-card">
-        <div class="service-icon">&#128101;</div>
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        </div>
         <h3>Multilingual Support</h3>
-        <p>Full support across English, Nepali, Hindi, and Bengali — so nothing gets lost in translation.</p>
+        <p>Communication that lands. English, Nepali, Hindi, and Bengali — available across every service we deliver, not as an afterthought.</p>
       </div>
     </div>
   </section>
 
   <!-- ── CONTACT ── -->
   <section id="contact">
-    <span class="section-label">Get in Touch</span>
-    <h2 class="section-title">Contact Us</h2>
-    <p class="section-sub">Have a question, a project, or just want to say hello? Reach out — we respond fast.</p>
+    <span class="section-eyebrow reveal">Get in Touch</span>
+    <h2 class="section-title reveal">Let&rsquo;s talk<br>about what you need.</h2>
+    <p class="section-sub reveal">
+      Questions, projects, partnerships — send us a message and we&rsquo;ll respond promptly.
+    </p>
     <div class="contact-grid">
-      <div class="contact-info-card">
-        <h3>Contact Info</h3>
-        <div class="contact-item">
-          <span class="label">Phone / WhatsApp</span>
-          <a href="tel:+9779852067865" class="value">+977 985-2067865</a>
+      <div class="contact-info reveal">
+        <div class="ci-label">Phone &amp; WhatsApp</div>
+        <div class="ci-value">
+          <a href="tel:+9779852067865">+977 985-2067865</a>
         </div>
-        <div class="contact-item">
-          <span class="label">Email</span>
-          <a href="mailto:info@innovisionnepal.com.np" class="value">info@innovisionnepal.com.np</a>
+        <div class="ci-label">Email</div>
+        <div class="ci-value">
+          <a href="mailto:info@innovisionnepal.com.np">info@innovisionnepal.com.np</a>
         </div>
-        <div class="contact-item">
-          <span class="label">Service Area</span>
-          <span class="value">Nepal</span>
-        </div>
-        <div class="contact-item">
-          <span class="label">Languages</span>
-          <span class="value">English &middot; Nepali &middot; Hindi &middot; Bengali</span>
+        <div class="ci-divider"></div>
+        <div class="ci-label">Service Area</div>
+        <div class="ci-value">Nepal</div>
+        <div class="ci-divider"></div>
+        <div class="ci-label">Languages</div>
+        <div class="ci-lang">
+          <span>English</span>
+          <span>Nepali</span>
+          <span>Hindi</span>
+          <span>Bengali</span>
         </div>
       </div>
-      <form class="contact-form" action="mailto:info@innovisionnepal.com.np" method="post" enctype="text/plain">
+      <form class="contact-form reveal" action="mailto:info@innovisionnepal.com.np" method="post" enctype="text/plain">
         <div class="form-row">
           <div class="form-group">
-            <label for="name">Full Name</label>
+            <label for="name">Name</label>
             <input type="text" id="name" name="name" placeholder="Your name" required>
           </div>
           <div class="form-group">
@@ -458,25 +813,51 @@
         </div>
         <div class="form-group">
           <label for="message">Message</label>
-          <textarea id="message" name="message" placeholder="Tell us about your project or inquiry..." required></textarea>
+          <textarea id="message" name="message" placeholder="Tell us about your project, event, or inquiry…" required></textarea>
         </div>
-        <button type="submit" class="form-submit">Send Message</button>
+        <button type="submit" class="form-submit">Send message</button>
       </form>
     </div>
   </section>
 
   <!-- ── FOOTER ── -->
   <footer>
-    <p>&copy; <span id="year"></span> Innovision Nepal Pvt. Ltd. &mdash; Nepal</p>
-    <p style="margin-top:8px;">
+    <div class="foot-row">
       <a href="mailto:info@innovisionnepal.com.np">info@innovisionnepal.com.np</a>
-      &nbsp;&middot;&nbsp;
-      +977 985-2067865
-    </p>
+      <a href="tel:+9779852067865">+977 985-2067865</a>
+      <a href="#home">Innovision Nepal Pvt. Ltd.</a>
+    </div>
+    <div class="foot-copy">&copy; <span id="year"></span> Innovision Nepal Pvt. Ltd. &mdash; Nepal</div>
   </footer>
 
   <script>
+    /* ── Year ── */
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    /* ── Nav scroll shadow ── */
+    const nav = document.getElementById('nav');
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          nav.classList.toggle('scrolled', window.scrollY > 20);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+
+    /* ── Scroll reveal (IntersectionObserver) ── */
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => observer.observe(el));
   </script>
 
 </body>
