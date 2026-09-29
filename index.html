@@ -260,6 +260,24 @@
       margin-top: 8px;
       flex-wrap: wrap;
     }
+    .hero-phone {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 8px;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--cyan-deep);
+      transition: color 0.25s var(--ease-smooth);
+      text-decoration: none;
+    }
+    .hero-phone:hover { color: var(--cyan); }
+    .hero-phone svg {
+      width: 18px; height: 18px;
+      transition: transform 0.3s var(--ease-spring);
+    }
+    .hero-phone:hover svg { transform: rotate(-8deg) scale(1.1); }
 
     /* ── HERO IMAGE ── */
     .hero-visual {
@@ -909,14 +927,14 @@
   <section class="hero" id="home">
     <div class="hero-inner">
       <div class="hero-text">
-        <span class="hero-eyebrow reveal">Sole Distributor · Nepal</span>
+        <span class="hero-eyebrow reveal">Satol Chemicals for Nepal</span>
         <h1 class="reveal">
-          Satol Chemicals —<br>
-          <span class="brand-word">Nepal</span>'s exclusive<br>
-          <span class="accent-word">partner</span>.
+          Cleaner chemicals.<br>
+          Better results.<br>
+          <span class="accent-word">One call away.</span>
         </h1>
         <p class="hero-lead reveal">
-          Innovision Nepal Pvt. Ltd. is the sole distributor of Satol Chemicals' full range of specialty cleaning, hygiene, and industrial chemical solutions across Nepal.
+          From hotel dishwash to brewery CIP — Satol's full range of cleaning and hygiene chemicals is available across Nepal through Innovision. One source, one team, fast response.
         </p>
         <div class="hero-actions reveal">
           <a href="#products" class="btn btn-primary">
@@ -927,10 +945,14 @@
             Request a quote
           </a>
         </div>
+        <a href="tel:+9779852067865" class="hero-phone reveal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.905.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.905.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +977 985-2067865
+        </a>
       </div>
       <div class="hero-visual reveal">
         <div class="hero-badge">
-          <div class="badge-label">Exclusive Distribution Partnership</div>
+          <div class="badge-label">Available across Nepal</div>
           <div class="badge-product">Satol Chemicals</div>
           <div class="badge-origin">India &nbsp;·&nbsp; Est. 1999 &nbsp;·&nbsp; Gujarat</div>
           <div class="badge-stats">
