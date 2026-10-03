@@ -71,21 +71,21 @@
     /* ── NAV ── */
     nav {
       position: fixed;
-      top: 24px;
+      top: 16px;
       left: 50%;
       transform: translateX(-50%);
       z-index: 100;
       display: flex;
       align-items: center;
-      gap: 28px;
-      padding: 12px 28px;
-      background: rgba(248, 252, 252, 0.85);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
+      gap: 32px;
+      padding: 14px 32px;
+      background: rgba(248, 252, 252, 0.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       border-radius: 999px;
       box-shadow:
         0 1px 0 rgba(10, 22, 40, 0.06),
-        0 8px 32px rgba(10, 22, 40, 0.06);
+        0 8px 32px rgba(10, 22, 40, 0.08);
       transition: box-shadow 0.4s var(--ease-smooth), transform 0.4s var(--ease-smooth);
     }
     nav.scrolled {
@@ -96,7 +96,7 @@
     .nav-brand {
       font-family: 'Playfair Display', serif;
       font-weight: 700;
-      font-size: 1.15rem;
+      font-size: 1.2rem;
       color: var(--near-black);
       letter-spacing: -0.02em;
       display: flex;
@@ -104,25 +104,25 @@
       gap: 10px;
     }
     .nav-brand .mark {
-      width: 26px; height: 26px;
+      width: 28px; height: 28px;
       background: var(--cyan-deep);
       border-radius: 50%;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       color: var(--white);
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 700;
       font-family: 'Jost', sans-serif;
     }
     .nav-links {
       display: flex;
-      gap: 28px;
+      gap: 32px;
       list-style: none;
       align-items: center;
     }
     .nav-links a {
-      font-size: 0.88rem;
+      font-size: 0.92rem;
       font-weight: 500;
       color: var(--muted);
       letter-spacing: 0.02em;
@@ -143,9 +143,9 @@
     .nav-links a:hover::after { width: 100%; }
 
     .nav-cta {
-      font-size: 0.85rem;
+      font-size: 0.88rem;
       font-weight: 600;
-      padding: 10px 22px;
+      padding: 11px 24px;
       border-radius: 999px;
       background: var(--cyan-deep);
       color: var(--white);
